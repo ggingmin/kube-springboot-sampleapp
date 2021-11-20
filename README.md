@@ -6,12 +6,18 @@
   </a>
 </p>
 
-> The Simple Spring Boot application has been implemented using Spring Boot, MongoDB, Docker, and Docker Compose.
+> The Simple Spring Boot application has been implemented using Spring Boot, MongoDB, Docker, Docker Compose, and Kubernetes.
 
 ## Usage
-
+### Run Pods
 ```sh
-sudo docker-compose up
+minikube start
+kubectl apply -f kube
+minikube service sampleapp --url 
+```
+### Run Dashboard
+```sh
+minikube dashboard
 ```
 
 ## Author
