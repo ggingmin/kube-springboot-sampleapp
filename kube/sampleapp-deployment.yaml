@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: sampleapp
+  name: sampleapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: sampleapp
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: sampleapp
+    spec:
+      containers:
+        - image: ggingmin/kube-springboot-sampleapp:1.0.0
+          name: sampleapp
+          ports:
+            - containerPort: 8080
+          resources: {}
+      restartPolicy: Always
+status: {}
