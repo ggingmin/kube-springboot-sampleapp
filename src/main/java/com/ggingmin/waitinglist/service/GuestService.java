@@ -5,11 +5,9 @@ import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class GuestService {
             Node document = parser.parse(content.trim());
             String html = renderer.render(document);
 
-            Guest guest = new Guest(html,null);
+            Guest guest = new Guest(content,null);
 //            guest.setId(sequenceGenerator.generateSequence(Guest.SEQUENCE_NAME));
             guestRepository.save(guest);
             model.addAttribute("content", "");
