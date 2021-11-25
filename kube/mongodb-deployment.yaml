@@ -33,9 +33,6 @@ spec:
           volumeMounts:
             - mountPath: /data/db
               name: mongodata
-            - mountPath: /docker-entrypoint-initdb.d/mongo-init.sh
-              name: mongodb-claim1
-              readOnly: true
           imagePullPolicy: Always
           command: ["/bin/sh", "-c", "sleep 120"]
       restartPolicy: Always
@@ -43,8 +40,4 @@ spec:
         - name: mongodata
           persistentVolumeClaim:
             claimName: mongodata
-        - name: mongodb-claim1
-          persistentVolumeClaim:
-            claimName: mongodb-claim1
-            readOnly: true
 status: {}
