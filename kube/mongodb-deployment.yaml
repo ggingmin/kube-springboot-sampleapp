@@ -34,7 +34,6 @@ spec:
             - mountPath: /data/db
               name: mongodata
           imagePullPolicy: Always
-          command: ["/bin/sh", "-c", "sleep 120"]
       restartPolicy: Always
       volumes:
         - name: mongodata
