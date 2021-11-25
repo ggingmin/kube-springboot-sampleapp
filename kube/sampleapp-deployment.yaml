@@ -24,10 +24,12 @@ spec:
         io.kompose.service: sampleapp
     spec:
       containers:
-        - image: ggingmin/kube-springboot-sampleapp:1.0.0
+        - image: ggingmin/kube-springboot-sampleapp:1.0.1
           name: sampleapp
           ports:
             - containerPort: 8080
           resources: {}
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-c", "sleep 120"]
       restartPolicy: Always
 status: {}

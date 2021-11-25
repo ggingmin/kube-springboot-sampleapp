@@ -36,6 +36,8 @@ spec:
             - mountPath: /docker-entrypoint-initdb.d/mongo-init.sh
               name: mongodb-claim1
               readOnly: true
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-c", "sleep 120"]
       restartPolicy: Always
       volumes:
         - name: mongodata
