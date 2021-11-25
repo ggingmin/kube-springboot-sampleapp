@@ -11,11 +11,12 @@ metadata:
 spec:
   ports:
     - name: "8080"
-      port: 80
+      port: 8080
       protocol: TCP
+      nodePort: 32323
       targetPort: 8080
   selector:
     io.kompose.service: sampleapp
-  type: LoadBalancer
+  type: NodePort
 status:
   loadBalancer: {}
